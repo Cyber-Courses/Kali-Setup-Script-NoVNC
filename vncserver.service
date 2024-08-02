@@ -1,13 +1,15 @@
 [Unit]
-Description=start vnc at boot
-After=multi-user.target
+Description=Start TightVNC server at startup
+After=syslog.target network.target
 
 [Service]
-Type=simple
-ExecStart=/usr/local/bin/start_x11vnc.sh
-ExecStop=/usr/bin/killall x11vnc & /usr/bin/killall novnc_proxy
+Type=forking
+User=kali
+PAMName=login
+PIDFile=/home/kali/.vnc/%H:1.pid
+ExecStart=/usr/bin/vncserver :1 -geometry 1920x1080 -depth 24 -SecurityTypes None
+ExecStop=/usr/bin/vncserver -kill :1
 Restart=on-failure
-Restart-sec=2
 
 [Install]
 WantedBy=multi-user.target
