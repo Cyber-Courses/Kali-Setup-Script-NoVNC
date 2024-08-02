@@ -5,7 +5,7 @@ apt update
 
 echo "🛠️ Install Kali Default tools"
 python3 -c 'print("-"*30)'
-apt install kali-default-tools -y
+apt install kali-defaults -y
 
 echo "🪟Install Kali xfce"
 python3 -c 'print("-"*30)'
