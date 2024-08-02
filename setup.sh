@@ -37,6 +37,10 @@ print_separator
 echo "🎖️ Create VNC & NoVNC services"
 print_separator
 
+apt install -y locales
+locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8 LANGUAGE=en_US:en
+
 mkdir -p /home/kali/.vnc
 chown kali:kali /home/kali/.vnc
 
@@ -50,7 +54,7 @@ EOL
 chmod +x /home/kali/.vnc/xstartup
 chown kali:kali /home/kali/.vnc/xstartup
 
-echo "kali" | vncpasswd -f > /home/kali/.vnc/passwd
+echo "password" | vncpasswd -f > /home/kali/.vnc/passwd
 chmod 600 /home/kali/.vnc/passwd
 chown kali:kali /home/kali/.vnc/passwd
 
