@@ -10,19 +10,19 @@ print_separator() {
 
 echo "👋 Update Package "
 print_separator
-apt update > /dev/null
+apt update
 
 echo "🛠️ Install Kali Default tools"
 print_separator
-apt install kali-defaults -y > /dev/null
+apt install kali-defaults -y
 
 echo "🪟Install Kali xfce"
 print_separator
-apt install kali-desktop-xfce -y > /dev/null
+apt install kali-desktop-xfce -y
 
 echo "👁️ Install VNC Server"
 print_separator
-apt install -y novnc x11vnc > /dev/null
+apt install -y novnc x11vnc
 
 
 echo "🎖️ Create VNC service"
@@ -34,7 +34,7 @@ cat <<EOT > /usr/local/bin/start_x11vnc.sh
 /usr/bin/startxfce4 &
 
 # Start x11vnc server
-/usr/bin/x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever
+/usr/bin/x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever -geometry 1920x1080
 
 # Start novnc
 /usr/share/novnc/utils/novnc_proxy --listen 8081 --vnc localhost:5900

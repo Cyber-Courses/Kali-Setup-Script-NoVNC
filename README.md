@@ -49,7 +49,7 @@ Replace `kali@1.1.1.1` with the appropriate username and IP address of your Kali
 
 After setting up the SSH tunnel, open your web browser and go to:
 ```
-http://localhost:8081/
+http://localhost:8081/vnc.html
 ```
 
 ## Setting Up a Kali Linux VM on Azure
@@ -96,7 +96,7 @@ This script is particularly useful for setting up a Kali Linux VM on Azure. Foll
 7. **Access NoVNC:**
    - Open your web browser and go to:
      ```
-     http://localhost:8081/
+     http://localhost:8081/vnc.html
      ```
      
 ## Support
