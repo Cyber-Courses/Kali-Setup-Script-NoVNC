@@ -27,5 +27,5 @@ echo "🏁 Launch and enable VNC service"
 python3 -c 'print("-"*30)'
 systemctl enable vncserver
 systemctl start vncserver
-systemctl status vncserver
 
+echo "✅ Everything ready"
