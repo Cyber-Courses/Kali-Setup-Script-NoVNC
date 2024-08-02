@@ -20,9 +20,9 @@ The "Kali Setup Script (NoVNC)" is an automated setup script designed to streaml
 ## Installation
 
 1. Clone the git repository to your Kali Linux machine.
-```bash
-git clone https://github.com/Cyber-Courses/Kali-Setup-Script-NoVNC.git
-```
+    ```bash
+    git clone https://github.com/Cyber-Courses/Kali-Setup-Script-NoVNC.git
+    ```
 2. Ensure the script has executable permissions:
     ```bash
     chmod +x setup.sh
