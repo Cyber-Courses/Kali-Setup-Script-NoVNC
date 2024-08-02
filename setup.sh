@@ -19,7 +19,6 @@ apt install kali-defaults -y > /dev/null
 echo "🪟Install Kali xfce"
 print_separator
 apt install kali-desktop-xfce -y > /dev/null
-startx > /dev/null
 
 echo "👁️ Install VNC Server"
 print_separator
