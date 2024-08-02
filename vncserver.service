@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/startxfce4 && /usr/bin/x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever && /usr/share/novnc/utils/novnc_proxy --listen 8081 --vnc localhost:5900
+ExecStart=/usr/local/bin/start_x11vnc.sh
 ExecStop=/usr/bin/killall x11vnc & /usr/bin/killall novnc_proxy
 Restart=on-failure
 Restart-sec=2
