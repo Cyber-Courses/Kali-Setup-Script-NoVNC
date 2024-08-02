@@ -1,0 +1,10 @@
+[Unit]
+Description=start vnc at boot
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever; /usr/share/novnc/utils/novnc_proxy --listen 8081 --vnc localhost:5900
+
+[Install]
+WantedBy=multi-user.target
