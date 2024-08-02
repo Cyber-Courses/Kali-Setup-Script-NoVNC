@@ -8,33 +8,37 @@ print_separator() {
     python3 -c 'print("-"*30)'
 }
 
+print_separator
 echo "👋 Update Package "
 print_separator
 apt update
 
+print_separator
 echo "🛠️ Install Kali Default tools"
 print_separator
 apt install kali-defaults -y
 
+print_separator
 echo "🪟Install Kali xfce"
 print_separator
 apt install kali-desktop-xfce -y
 
+print_separator
 echo "👁️ Install VNC Server"
 print_separator
-apt install -y novnc x11vnc
+apt install -y novnc x11vnc xvfb
 
-
+print_separator
 echo "🎖️ Create VNC service"
 print_separator
 
 cat <<EOT > /usr/local/bin/start_x11vnc.sh
 #!/bin/bash
 # Start the XFCE desktop environment
-/usr/bin/startxfce4 &
+xvfb-run :1 -screen 0 1920x1080x16 & startxfce4 --display :1 &
 
 # Start x11vnc server
-/usr/bin/x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever -geometry 1920x1080
+/usr/bin/x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever
 
 # Start novnc
 /usr/share/novnc/utils/novnc_proxy --listen 8081 --vnc localhost:5900
