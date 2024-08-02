@@ -27,6 +27,7 @@ print_separator
 echo "👁️ Install VNC Server"
 print_separator
 apt install -y novnc x11vnc xvfb
+apt autoremove
 
 print_separator
 echo "🎖️ Create VNC service"
