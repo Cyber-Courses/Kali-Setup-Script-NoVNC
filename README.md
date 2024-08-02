@@ -40,10 +40,10 @@ After running the script, your Kali Linux environment will be set up with NoVNC 
 
 To forward the NoVNC port through SSH, use the following command:
 ```bash
-ssh kali@192.168.13.37 -L 8081:localhost:8081
+ssh kali@1.1.1.1 -L 8081:localhost:8081
 ```
 
-Replace `kali@192.168.13.37` with the appropriate username and IP address of your Kali Linux machine.
+Replace `kali@1.1.1.1` with the appropriate username and IP address of your Kali Linux machine.
 
 ### Access NoVNC
 
