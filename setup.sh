@@ -33,7 +33,12 @@ echo "🔧 Auto remove unused packages"
 print_separator
 apt autoremove -y
 
-mkdir -p ~/.vnc
+print_separator
+echo "🎖️ Create VNC & NoVNC services"
+print_separator
+
+mkdir -p /home/kali/.vnc
+chown kali:kali /home/kali/.vnc
 
 cat <<EOL > /home/kali/.vnc/xstartup
 #!/bin/sh
@@ -42,10 +47,12 @@ unset DBUS_SESSION_BUS_ADDRESS
 startxfce4 &
 EOL
 
-print_separator
-echo "🎖️ Create VNC & NoVNC services"
-print_separator
+chmod +x /home/kali/.vnc/xstartup
+chown kali:kali /home/kali/.vnc/xstartup
 
+echo "kali" | vncpasswd -f > /home/kali/.vnc/passwd
+chmod 600 /home/kali/.vnc/passwd
+chown kali:kali /home/kali/.vnc/passwd
 
 cp ./vncserver.service /etc/systemd/system/vncserver.service
 cp ./novnc.service /etc/systemd/system/novnc.service

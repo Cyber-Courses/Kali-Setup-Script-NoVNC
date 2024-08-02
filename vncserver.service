@@ -10,6 +10,10 @@ PIDFile=/home/kali/.vnc/%H:1.pid
 ExecStart=/usr/bin/vncserver :1 -geometry 1920x1080 -depth 24 -SecurityTypes None
 ExecStop=/usr/bin/vncserver -kill :1
 Restart=on-failure
+RestartSec=2
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=vncserver
 
 [Install]
 WantedBy=multi-user.target
