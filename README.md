@@ -22,6 +22,7 @@ The "Kali Setup Script (NoVNC)" is an automated setup script designed to streaml
 1. Clone the git repository to your Kali Linux machine.
     ```bash
     git clone https://github.com/Cyber-Courses/Kali-Setup-Script-NoVNC.git
+    cd Kali-Setup-Script-NoVNC/
     ```
 2. Ensure the script has executable permissions:
     ```bash
@@ -40,7 +41,7 @@ After running the script, your Kali Linux environment will be set up with NoVNC 
 
 To forward the NoVNC port through SSH, use the following command:
 ```bash
-ssh kali@1.1.1.1 -L 8081:localhost:8081
+ssh -i kali_key.pem -L 8081:localhost:8081 kali@1.1.1.1 
 ```
 
 Replace `kali@1.1.1.1` with the appropriate username and IP address of your Kali Linux machine.
