@@ -7,13 +7,13 @@ Type=forking
 User=kali
 PAMName=login
 PIDFile=/home/kali/.vnc/%H:1.pid
-ExecStartPre=-/usr/bin/vncserver -kill :1 > /dev/null 2>&1 || true
+Environment=DISPLAY=:1
 ExecStart=/usr/bin/vncserver :1 -geometry 1920x1080 -depth 24
 ExecStop=/usr/bin/vncserver -kill :1
 Restart=on-failure
 RestartSec=2
-StandardOutput=syslog
-StandardError=syslog
+StandardOutput=journal
+StandardError=journal
 SyslogIdentifier=vncserver
 
 [Install]
