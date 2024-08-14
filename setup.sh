@@ -41,6 +41,15 @@ apt install -y locales
 locale-gen "en_US.UTF-8"
 dpkg-reconfigure locales
 
+if id "kali" &>/dev/null; then
+  continue
+else
+    sudo useradd -m -s /bin/bash kali
+    echo "kali:kali" | sudo chpasswd
+fi
+
+sudo usermod -aG sudo kali
+
 mkdir -p /home/kali/.vnc
 chown kali:kali /home/kali/.vnc
 
@@ -70,4 +79,8 @@ systemctl start vncserver
 systemctl enable novnc
 systemctl start novnc
 
-echo "✅ Everything ready"
+if systemctl is-active --quiet vncserver && systemctl is-active --quiet novnc; then
+  echo "✅ Everything ready"
+else
+    echo "❌ Something went wrong"
+fi

@@ -6,6 +6,7 @@ After=syslog.target network.target vncserver.service
 Type=simple
 User=kali
 ExecStart=/usr/bin/websockify --web=/usr/share/novnc/ 8081 localhost:5901
+ExecStop=/bin/kill -SIGTERM $MAINPID
 Restart=on-failure
 
 [Install]
