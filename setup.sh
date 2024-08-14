@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 print_separator() {
-    python3 -c 'print("-"*30)'
+    python3 -c 'print("-"*60)'
 }
 
 print_separator
@@ -44,11 +44,10 @@ dpkg-reconfigure locales
 if id "kali" &>/dev/null; then
   continue
 else
-    sudo useradd -m -s /bin/bash kali
+    sudo useradd -m -s /bin/zsh kali
     echo "kali:kali" | sudo chpasswd
+    sudo usermod -aG sudo kali
 fi
-
-sudo usermod -aG sudo kali
 
 mkdir -p /home/kali/.vnc
 chown kali:kali /home/kali/.vnc
@@ -71,16 +70,21 @@ cp ./vncserver.service /etc/systemd/system/vncserver.service
 cp ./novnc.service /etc/systemd/system/novnc.service
 systemctl daemon-reload
 
-
+print_separator
 echo "🏁 Launch and enable VNC & NoVNC services"
 print_separator
+
 systemctl enable vncserver
 systemctl start vncserver
 systemctl enable novnc
 systemctl start novnc
 
 if systemctl is-active --quiet vncserver && systemctl is-active --quiet novnc; then
+  print_separator
   echo "✅ Everything ready"
+  print_separator
 else
-    echo "❌ Something went wrong"
+  print_separator
+  echo "❌ Something went wrong"
+  print_separator
 fi

@@ -92,7 +92,7 @@ This script is particularly useful for setting up a Kali Linux VM on Azure. Foll
 6. **Set Up SSH Port Forwarding:**
    - On your **local** machine, use SSH port forwarding to access NoVNC:
      ```bash
-     ssh -i kali_key.pem your_username@your_vm_public_ip -L 8081:localhost:8081
+     ssh -N -i kali_key.pem your_username@your_vm_public_ip -L 8081:localhost:8081
      ```
 
 7. **Access NoVNC:**
@@ -100,6 +100,7 @@ This script is particularly useful for setting up a Kali Linux VM on Azure. Foll
      ```
      http://localhost:8081/vnc.html
      ```
+     Use "password" to connect.
      
 ## Support
 
