@@ -46,6 +46,13 @@ ssh -i kali_key.pem -L 8081:localhost:8081 kali@1.1.1.1
 
 Replace `kali@1.1.1.1` with the appropriate username and IP address of your Kali Linux machine.
 
+To forward the VNCserver port through SSH, use the following command:
+```bash
+ssh -i kali_key.pem -L 5901:localhost:5901 kali@1.1.1.1 
+```
+
+Replace `kali@1.1.1.1` with the appropriate username and IP address of your Kali Linux machine. Then, use a VNC client to connect.
+
 ### Access NoVNC
 
 After setting up the SSH tunnel, open your web browser and go to:
@@ -64,7 +71,9 @@ This script is particularly useful for setting up a Kali Linux VM on Azure. Foll
    - Navigate to "Virtual Machines" and click on "Add" to create a new VM.
    - Choose "[Kali Linux](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/kali-linux.kali)" from the list of available images in the marketplace.
    - Choose the latest version.
+   - Change the username to `kali`.
    - Configure the VM size, region, and other settings as needed.
+   - Review + Create
    - Download SSH Key
 
 3. **Access the VM:**
